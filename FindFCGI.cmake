@@ -5,11 +5,11 @@
 #  FCGI_LIBRARIES
 
 # Look for the header file.
-find_path(FCGI_INCLUDE_DIR NAMES fastcgi.h fcgi.h fcgio.h)
+find_path(FCGI_INCLUDE_DIR NAMES fastcgi.h fcgi.h fcgio.h PATHS $ENV{FCGI_ROOT}/include)
 
 # Look for the library.
-find_library(FCGI_LIBRARY NAMES fcgi)
-find_library(FCGIPP_LIBRARY NAMES fcgi++)
+find_library(FCGI_LIBRARY NAMES fcgi PATHS $ENV{FCGI_ROOT}/lib)
+find_library(FCGIPP_LIBRARY NAMES fcgi++ PATHS $ENV{FCGI_ROOT}/lib)
 
 # Handle the QUIETLY and REQUIRED arguments and set FCGI_FOUND to TRUE if all listed variables are TRUE.
 include(FindPackageHandleStandardArgs)
